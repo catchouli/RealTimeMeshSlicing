@@ -60,7 +60,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	resizeGL(width, height);
 
 	// Load mesh
-	mesh.loadObj("pony.obj");
+	mesh.loadObj("teapot.obj");
 
 	// Cut mesh
 	Vector3 planePoint = { 0, 0, 0 };
@@ -130,6 +130,7 @@ void render(double dt)
 	rotation += 0.01f;
 
 	// Clear screen
+    glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// Enable vertex and normal arrays
@@ -138,7 +139,8 @@ void render(double dt)
 
 	// Set up transformation
 	glLoadIdentity();
-	glTranslatef(0.0f, 0.0f, -15.0f);
+    glTranslatef(0.0f, 0.0f, -15.0f);
+    glScalef(0.025f, 0.025f, 0.025f);
 
 	// Draw mesh
 	glVertexPointer(3, GL_FLOAT, 0, mesh.vertices);
@@ -147,7 +149,8 @@ void render(double dt)
 
 	// Set up transformation
 	glLoadIdentity();
-	glTranslatef(5.0f, 0.0f, -15.0f);
+    glTranslatef(5.0f, 0.0f, -15.0f);
+    glScalef(0.025f, 0.025f, 0.025f);
 	//glRotatef(rotation, 1, 1, 0);
 
 	// Draw mesh
@@ -157,7 +160,8 @@ void render(double dt)
 
 	// Set up transformation
 	glLoadIdentity();
-	glTranslatef(-5.0f, 0.0f, -15.0f);
+    glTranslatef(-5.0f, 0.0f, -15.0f);
+    glScalef(0.025f, 0.025f, 0.025f);
 
 	// Draw mesh
 	glVertexPointer(3, GL_FLOAT, 0, right.vertices);
